@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class HardCodedExamples {
+public class HardCodedEx {
     String baseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api";
     String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTY4MTcwMjAsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY5Njg2MDIyMCwidXNlcklkIjoiNTYyNyJ9.Jd30HHfsdMFPmBvvO8JefFKL3QJAAXFBagp1fVzIr3g";
     static String employee_id;
