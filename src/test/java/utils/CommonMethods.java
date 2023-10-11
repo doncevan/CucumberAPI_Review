@@ -6,6 +6,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -28,7 +29,11 @@ public class CommonMethods extends PageInitializers {
 //        read the value of the key "browser" from the property file
         switch (ConfigReader.getPropertyValue("browser")) {
             case "chrome":
-                driver = new ChromeDriver();
+                ChromeOptions ops = new ChromeOptions();
+                ops.addArguments("--no-sandbox");
+                ops.addArguments("--remote-allow-origins=*");
+                ops.addArguments("--headless=new");
+                driver = new ChromeDriver(ops);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
