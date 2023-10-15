@@ -8,13 +8,27 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class HardCodedEx {
+public class HardCodedExamples {
     String baseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api";
-    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTcwNjA0MjAsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY5NzEwMzYyMCwidXNlcklkIjoiNTYyNyJ9.5kOK70N4qluCOg2AY9y9ErKYVuGOZNaRD_IFk9PquWw";
+    public static String token;
     static String employee_id;
 
     @Test
-    public void a_createEmployee() {
+    public void GenerateToken() {
+        RequestSpecification request = given().
+                header("Content-Type", "application/json").
+                body("{\n" +
+                        "  \"email\": \"myvanelly@test.com\",\n" +
+                        "  \"password\": \"06032008\"\n" +
+                        "}");
+        Response response = request.when().post("/generateToken.php");
+        //response.prettyPrint();
+        token = "Bearer " + response.jsonPath().getString("token");
+        System.out.println(token);
+    }
+
+    @Test
+    public void CreateEmployee() {
         //preparing the request
         RequestSpecification request = given().header("Content-Type", "application/json").
                 header("Authorization", token).body("{\n" +

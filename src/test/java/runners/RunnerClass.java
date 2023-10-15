@@ -22,6 +22,5 @@ import org.junit.runner.RunWith;
         //it used to print all the steps in console
         plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json", "rerun:target/failed.txt"}
 )
-
 public class RunnerClass {
 }

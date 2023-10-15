@@ -113,5 +113,4 @@ public class CommonMethods extends PageInitializers {
         //this line is going to return the formatted date
         return sdf.format(date);
     }
-
 }
