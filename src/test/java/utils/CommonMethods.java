@@ -30,8 +30,8 @@ public class CommonMethods extends PageInitializers {
         switch (ConfigReader.getPropertyValue("browser")) {
             case "chrome":
                 ChromeOptions ops = new ChromeOptions();
-                ops.addArguments("--no-sandbox");
-                ops.addArguments("--remote-allow-origins=*");
+                //ops.addArguments("--no-sandbox");
+                //ops.addArguments("--remote-allow-origins=*");
                 ops.addArguments("--headless=new");
                 driver = new ChromeDriver(ops);
                 break;
