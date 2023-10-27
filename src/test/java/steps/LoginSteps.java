@@ -23,9 +23,9 @@ public class LoginSteps extends CommonMethods {
 
     @When("user enters valid admin username and password")
     public void user_enters_valid_admin_username_and_password() {
-//        integrate the log4j.xml configuration file into our project
-        //DOMConfigurator.configure("log4j.xml");
-        Configurator.initialize(null, "log4j.xml");
+//        integrate the log4j2.xml configuration file into our project
+        //DOMConfigurator.configure("log4j2.xml");
+        Configurator.initialize(null, "log4j2.xml");
         Log.startTestCase("The test case started");
         sendText(ConfigReader.getPropertyValue("username"), loginPage.usernameField);
         sendText(ConfigReader.getPropertyValue("password"), loginPage.passwordField);
